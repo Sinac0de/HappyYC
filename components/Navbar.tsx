@@ -16,7 +16,9 @@ async function Navbar() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <h2 className="text-2xl font-bold">HappyYC</h2>
+                <h2 className="text-2xl font-bold">
+                  Happy<span className="text-primary">YC</span>
+                </h2>
               </div>
             </div>
           </div>

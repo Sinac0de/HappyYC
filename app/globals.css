@@ -167,7 +167,7 @@ a {
   }
 
   .search-input {
-    @apply flex-1 font-bold placeholder:font-semibold placeholder:text-black-100 w-full h-auto outline-none;
+    @apply font-bold placeholder:font-semibold placeholder:text-black-100/60 w-full h-auto outline-none bg-white;
   }
 
   .search-btn {
