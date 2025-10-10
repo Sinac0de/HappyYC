@@ -9,14 +9,14 @@ async function Navbar() {
   const session = await auth();
 
   return (
-    <header>
+    <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
       <nav>
         <div className="flex gap-2 justify-between max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           {/* logo */}
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <h2 className="text-2xl font-bold">
+                <h2 className="text-2xl font-bold text-black dark:text-white">
                   Happy<span className="text-primary">YC</span>
                 </h2>
               </div>
@@ -32,8 +32,12 @@ async function Navbar() {
                   await signIn("github");
                 }}
               >
-                <button type="submit" className="flex gap-2 items-center">
-                  Signin with GitHub <FaGithub />
+                <button
+                  type="submit"
+                  className="flex gap-2 items-center bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors"
+                >
+                  Signin with GitHub{" "}
+                  <FaGithub className="text-black dark:text-white" />
                 </button>
               </form>
             ) : (
@@ -45,16 +49,22 @@ async function Navbar() {
                   }}
                   className="flex items-center"
                 >
-                  <button type="submit">
-                    <PiSignOut size={25} />
+                  <button
+                    type="submit"
+                    className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <PiSignOut
+                      size={25}
+                      className="text-black dark:text-white"
+                    />
                   </button>
                 </form>
 
                 <div>
-                  <h3 className="text-base font-semibold">
+                  <h3 className="text-base font-semibold text-black dark:text-white">
                     {session.user?.name}
                   </h3>
-                  <h4 className="text-sm text-gray-500">
+                  <h4 className="text-sm text-gray-500 dark:text-gray-400">
                     {session.user?.email}
                   </h4>
                 </div>
@@ -72,7 +82,7 @@ async function Navbar() {
               </div>
             )}
             {/* theme toggler */}
-            <AnimatedThemeToggler />
+            <AnimatedThemeToggler className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" />
           </div>
         </div>
       </nav>

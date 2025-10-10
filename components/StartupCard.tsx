@@ -20,9 +20,9 @@ function StartupCard({ post }: { post: any }) {
   return (
     <li className="startup-card group">
       <div className="flex-between">
-        <p className="startup_card_date">{formatDate(_createdAt)}</p>
+        <p className="startup-card_date">{formatDate(_createdAt)}</p>
         <div className="flex gap-1.5">
-          <EyeIcon className="size-6 text-primary" />
+          <EyeIcon className="size-6 text-primary dark:text-primary/80" />
           <span className="text-16-medium">{views}</span>
         </div>
       </div>
@@ -38,8 +38,8 @@ function StartupCard({ post }: { post: any }) {
         </div>
         <Link href={`/user/${author?._id}`}>
           <Image
-            src="https://placehold.co/40x40/png"
-            alt={author?.name!}
+            src={author?.image || "https://placehold.co/40x40/png"}
+            alt={author?.name || "Author"}
             width={48}
             height={48}
             className="rounded-full"
@@ -51,8 +51,8 @@ function StartupCard({ post }: { post: any }) {
         <p className="startup-card_desc">{description}</p>
 
         <img
-          src="https://placehold.co/600x400/png"
-          alt="placeholder"
+          src={image || "https://placehold.co/600x400/png"}
+          alt={title || "Startup image"}
           className="startup-card_img"
         />
       </Link>

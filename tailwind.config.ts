@@ -14,7 +14,7 @@ const config: Config = {
         xs: "475px",
       },
       colors: {
-        background: "hsl(var(--background))",
+        background: "var(--background)",
         foreground: "hsl(var(--foreground))",
         primary: {
           50: "#fff0f5",
@@ -83,15 +83,14 @@ const config: Config = {
       fontFamily: {
         "work-sans": ["var(--font-work-sans)"],
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
       boxShadow: {
         100: "2px 2px 0px 0px rgb(0, 0, 0)",
         200: "2px 2px 0px 2px rgb(0, 0, 0)",
         300: "2px 2px 0px 2px rgb(238, 43, 105)",
+        // dark mode shadows
+        "100-dark": "2px 2px 0px 0px rgb(255, 255, 255, 0.3)",
+        "200-dark": "2px 2px 0px 2px rgb(75, 85, 99)",
+        "300-dark": "2px 2px 0px 2px rgb(236, 72, 153, 0.5)",
       },
     },
   },
