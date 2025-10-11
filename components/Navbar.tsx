@@ -1,12 +1,23 @@
 import { auth, signIn, signOut } from "@/auth";
 import Image from "next/image";
-
-import { PiSignOut } from "react-icons/pi";
-import { AnimatedThemeToggler } from "./ui/animated-theme-toggler";
 import { FaGithub } from "react-icons/fa";
+import { PiSignOut } from "react-icons/pi";
+import { MobileSidebar } from "./MobileSidebar";
+import { AnimatedThemeToggler } from "./ui/animated-theme-toggler";
 
 async function Navbar() {
   const session = await auth();
+
+  // Server actions for authentication
+  async function handleSignIn() {
+    "use server";
+    await signIn("github");
+  }
+
+  async function handleSignOut() {
+    "use server";
+    await signOut({ redirectTo: "/" });
+  }
 
   return (
     <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
@@ -23,8 +34,17 @@ async function Navbar() {
             </div>
           </div>
 
-          {/* User info */}
-          <div className="relative flex items-center justify-between gap-2 h-16">
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center">
+            <MobileSidebar
+              user={session?.user ?? null}
+              onSignIn={handleSignIn}
+              onSignOut={handleSignOut}
+            />
+          </div>
+
+          {/* Desktop User info */}
+          <div className="hidden md:flex relative items-center justify-between gap-2 h-16">
             {!session ? (
               <form
                 action={async () => {
