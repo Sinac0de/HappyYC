@@ -54,7 +54,7 @@ export function MobileSidebar({
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 w-64 bg-white dark:bg-gray-900 shadow-lg transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 w-2/3 bg-white dark:bg-gray-900 shadow-lg transform transition-transform duration-300 ease-in-out md:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

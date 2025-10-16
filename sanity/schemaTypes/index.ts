@@ -1,5 +1,5 @@
 import { type SchemaTypeDefinition } from "sanity";
-import { author } from "./athor";
+import { author } from "./author";
 import { playlist } from "./playlist";
 import { startup } from "./startup";
 
