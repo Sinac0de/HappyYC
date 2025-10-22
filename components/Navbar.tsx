@@ -4,6 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { PiSignOut } from "react-icons/pi";
 import { MobileSidebar } from "./MobileSidebar";
 import { AnimatedThemeToggler } from "./ui/animated-theme-toggler";
+import Link from "next/link";
 
 async function Navbar() {
   const session = await auth();
@@ -26,11 +27,11 @@ async function Navbar() {
           {/* logo */}
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
+              <Link href={"/"} className="flex-shrink-0">
                 <h2 className="text-2xl font-bold text-black dark:text-white">
                   Happy<span className="text-primary">YC</span>
                 </h2>
-              </div>
+              </Link>
             </div>
           </div>
 

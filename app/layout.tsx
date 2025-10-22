@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "easymde/dist/easymde.min.css";
+import NextTopLoader from "nextjs-toploader";
 
 const workSans = localFont({
   src: [
@@ -68,7 +69,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${workSans.variable} min-h-screen bg-background`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <NextTopLoader showSpinner color="#ec4899" />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
