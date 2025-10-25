@@ -15,7 +15,7 @@ export default async function Home({
 
   return (
     <>
-      <section className="pink_container">
+      <section className="primary-container">
         <p className="tag">Pitch, vote, and grow</p>
         <h1 className="heading">
           Pitch Your Startup, <br />

@@ -1,9 +1,10 @@
 import { ThemeProvider } from "@/components/ThemeProvider";
+import "easymde/dist/easymde.min.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
-import "easymde/dist/easymde.min.css";
 import NextTopLoader from "nextjs-toploader";
+import { Toaster } from "react-hot-toast";
+import "./globals.css";
 
 const workSans = localFont({
   src: [
@@ -70,7 +71,25 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${workSans.variable} min-h-screen bg-background`}>
         <ThemeProvider>
-          <NextTopLoader showSpinner color="#ec4899" />
+          <NextTopLoader showSpinner color="#ff5a3d" />
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+            gutter={8}
+            containerClassName=""
+            containerStyle={{}}
+            toasterId="default"
+            toastOptions={{
+              // Define default options
+              className: "",
+              duration: 5000,
+              removeDelay: 1000,
+              style: {
+                background: "#363636",
+                color: "#fff",
+              },
+            }}
+          />
           {children}
         </ThemeProvider>
       </body>
