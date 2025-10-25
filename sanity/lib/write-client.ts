@@ -2,11 +2,11 @@ import { createClient } from "next-sanity";
 
 import { apiVersion, dataset, projectId, token } from "../env";
 
-export const client = createClient({
+export const writeClient = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true,
+  useCdn: false,
   token: token || undefined, // Only use token if available
   // Enable stega only in development
   stega:
@@ -18,6 +18,6 @@ export const client = createClient({
       : undefined,
 });
 
-if (!client.config().token) {
-  throw new Error("Missing client token");
+if (!writeClient.config().token) {
+  throw new Error("Missing write token");
 }
