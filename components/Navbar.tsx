@@ -5,6 +5,7 @@ import { PiSignOut } from "react-icons/pi";
 import { MobileSidebar } from "./MobileSidebar";
 import { AnimatedThemeToggler } from "./ui/animated-theme-toggler";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 async function Navbar() {
   const session = await auth();
@@ -81,25 +82,30 @@ async function Navbar() {
                   </button>
                 </form>
 
-                <div>
-                  <h3 className="text-base font-semibold text-black dark:text-white">
-                    {session.user?.name}
-                  </h3>
-                  <h4 className="text-sm text-gray-500 dark:text-gray-400">
-                    {session.user?.email}
-                  </h4>
-                </div>
+                <Link
+                  href={`/user/${session?.id}`}
+                  className="flex gap-1 justify-between items-center hover:bg-gray-200 text-left p-1 rounded-md"
+                >
+                  <div>
+                    <h3 className="text-base font-semibold text-black dark:text-white">
+                      {session.user?.name}
+                    </h3>
+                    <h4 className="text-sm text-gray-500 dark:text-gray-400">
+                      {session.user?.email}
+                    </h4>
+                  </div>
 
-                {/* user image */}
-                <div className="flex rounded-full">
-                  <Image
-                    height={40}
-                    width={40}
-                    src={session.user?.image || ""}
-                    className="rounded-full"
-                    alt="user's github profile pic"
-                  />
-                </div>
+                  {/* user image */}
+                  <div className="flex rounded-full aspect-square">
+                    <Image
+                      height={40}
+                      width={40}
+                      src={session.user?.image || ""}
+                      className="rounded-full"
+                      alt="user's github profile pic"
+                    />
+                  </div>
+                </Link>
               </div>
             )}
             {/* theme toggler */}
