@@ -1,11 +1,10 @@
 import { auth, signIn, signOut } from "@/auth";
 import Image from "next/image";
+import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { PiSignOut } from "react-icons/pi";
 import { MobileSidebar } from "./MobileSidebar";
 import { AnimatedThemeToggler } from "./ui/animated-theme-toggler";
-import Link from "next/link";
-import { Button } from "./ui/button";
 
 async function Navbar() {
   const session = await auth();
@@ -40,6 +39,7 @@ async function Navbar() {
           <div className="md:hidden flex items-center">
             <MobileSidebar
               user={session?.user ?? null}
+              session={session}
               onSignIn={handleSignIn}
               onSignOut={handleSignOut}
             />
@@ -84,7 +84,7 @@ async function Navbar() {
 
                 <Link
                   href={`/user/${session?.id}`}
-                  className="flex gap-1 justify-between items-center hover:bg-gray-200 text-left p-1 rounded-md"
+                  className="flex gap-1 justify-between items-center hover:bg-gray-200 dark:hover:bg-gray-700 text-left p-1 rounded-md"
                 >
                   <div>
                     <h3 className="text-base font-semibold text-black dark:text-white">

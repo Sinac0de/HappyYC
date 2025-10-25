@@ -84,13 +84,17 @@ const config: Config = {
         "work-sans": ["var(--font-work-sans)"],
       },
       boxShadow: {
-        100: "2px 2px 0px 0px rgb(0, 0, 0)",
-        200: "2px 2px 0px 2px rgb(0, 0, 0)",
-        300: "2px 2px 0px 2px rgb(238, 43, 105)",
-        // dark mode shadows
-        "100-dark": "2px 2px 0px 0px rgb(255, 255, 255, 0.3)",
-        "200-dark": "2px 2px 0px 2px rgb(75, 85, 99)",
-        "300-dark": "2px 2px 0px 2px rgb(236, 72, 153, 0.5)",
+        // Light Mode
+        100: "2px 2px 0px 0px rgba(0, 0, 0)",
+        200: "2px 2px 0px 2px rgba(0, 0, 0)",
+        300: "2px 2px 0px 2px #ff5a3d", // primary main
+        400: "2px 2px 0px 2px #06b6d4", // secondary main
+
+        // Dark Mode
+        "100-dark": "2px 2px 0px 0px rgba(255, 255, 255, 0.28)",
+        "200-dark": "2px 2px 0px 2px rgba(148, 163, 184, 0.45)", // gray/neutral accent
+        "300-dark": "2px 2px 0px 2px rgba(255, 90, 61, 0.55)", // primary-glow
+        "400-dark": "2px 2px 0px 2px rgba(6, 182, 212, 0.55)", // secondary-glow
       },
     },
   },

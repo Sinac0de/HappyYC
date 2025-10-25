@@ -12,8 +12,10 @@ export function MobileSidebar({
   user,
   onSignIn,
   onSignOut,
+  session,
 }: {
   user: AuthUser | null;
+  session: any;
   onSignIn?: () => void;
   onSignOut?: () => void;
 }) {
@@ -76,7 +78,11 @@ export function MobileSidebar({
           {/* User Profile Section */}
           <div className="p-4 border-b border-gray-200 dark:border-gray-800">
             {user ? (
-              <div className="flex items-center gap-3">
+              <Link
+                href={`/user/${session?.id}`}
+                onClick={toggleSidebar}
+                className="flex gap-1 justify-between items-center hover:bg-gray-200 dark:hover:bg-gray-700 text-left p-1 rounded-md"
+              >
                 <div className="relative">
                   {user.image ? (
                     <Image
@@ -100,7 +106,7 @@ export function MobileSidebar({
                     {user.email || "No email provided"}
                   </p>
                 </div>
-              </div>
+              </Link>
             ) : (
               <div className="flex items-center gap-3">
                 <div className="bg-gray-200 border-2 border-dashed rounded-xl w-10 h-10 flex items-center justify-center">
