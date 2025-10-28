@@ -17,18 +17,19 @@ const config: Config = {
         background: "var(--background)",
         foreground: "hsl(var(--foreground))",
         primary: {
-          50: "#fff8f3",
-          100: "#ffece6",
-          200: "#ffd1c9",
-          300: "#ffac9c",
-          400: "#ff846b",
-          500: "#ff5a3d",
-          600: "#e04832",
-          700: "#b43628",
-          800: "#8a2a1f",
-          900: "#621e17",
-          DEFAULT: "#ff5a3d",
+          50: "#FFF2F5",
+          100: "#FFE0EB",
+          200: "#FFC4D6",
+          300: "#FFA8C0",
+          400: "#FF8DB0",
+          500: "#FF70A0",
+          600: "#E6598C",
+          700: "#B7436F",
+          800: "#8C3154",
+          900: "#611F3B",
+          DEFAULT: "#FF70A0",
         },
+
         secondary: {
           50: "#ecfeff",
           100: "#cffafe",
@@ -42,6 +43,7 @@ const config: Config = {
           900: "#164e63",
           DEFAULT: "#06b6d4",
         },
+
         accent: {
           50: "#eff6ff",
           100: "#dbeafe",
@@ -87,14 +89,14 @@ const config: Config = {
         // Light Mode
         100: "2px 2px 0px 0px rgba(0, 0, 0)",
         200: "2px 2px 0px 2px rgba(0, 0, 0)",
-        300: "2px 2px 0px 2px #ff5a3d", // primary main
+        300: "2px 2px 0px 2px #FF70A0", // primary main
         400: "2px 2px 0px 2px #06b6d4", // secondary main
 
         // Dark Mode
         "100-dark": "2px 2px 0px 0px rgba(255, 255, 255, 0.28)",
         "200-dark": "2px 2px 0px 2px rgba(148, 163, 184, 0.45)", // gray/neutral accent
-        "300-dark": "2px 2px 0px 2px rgba(255, 90, 61, 0.55)", // primary-glow
-        "400-dark": "2px 2px 0px 2px rgba(6, 182, 212, 0.55)", // secondary-glow
+        "300-dark": "2px 2px 0px 2px #FF70A0", // primary-glow
+        "400-dark": "2px 2px 0px 2px #06b6d4", // secondary-glow
       },
     },
   },

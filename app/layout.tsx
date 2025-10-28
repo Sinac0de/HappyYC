@@ -71,7 +71,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${workSans.variable} min-h-screen bg-background`}>
         <ThemeProvider>
-          <NextTopLoader showSpinner color="#ff5a3d" />
+          <NextTopLoader showSpinner color="#FF70A0" />
           <Toaster
             position="top-center"
             reverseOrder={false}
