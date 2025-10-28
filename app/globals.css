@@ -90,7 +90,7 @@ a {
   }
 
   .text-14-normal {
-    @apply font-normal text-sm text-white-100/80 dark:text-gray-300;
+    @apply font-normal text-sm text-gray-700 dark:text-gray-300;
   }
 
   .primary-container {
