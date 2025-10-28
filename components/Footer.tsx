@@ -32,7 +32,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="border-t-2 border-gray-800 bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
@@ -43,8 +43,8 @@ export default function Footer() {
               </h2>
             </div>
             <p className="mt-4 text-gray-400 max-w-md">
-              Empowering entrepreneurs to pitch, connect, and grow their startups 
-              with a global community of innovators and investors.
+              Empowering entrepreneurs to pitch, connect, and grow their
+              startups with a global community of innovators and investors.
             </p>
             <div className="flex space-x-4 mt-6">
               {navigation.social.map((item) => {
@@ -121,10 +121,16 @@ export default function Footer() {
             &copy; {currentYear} HappyYC. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
-            <Link href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+            <Link
+              href="#"
+              className="text-gray-400 hover:text-white transition-colors duration-300"
+            >
               Privacy Policy
             </Link>
-            <Link href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+            <Link
+              href="#"
+              className="text-gray-400 hover:text-white transition-colors duration-300"
+            >
               Terms of Service
             </Link>
           </div>
