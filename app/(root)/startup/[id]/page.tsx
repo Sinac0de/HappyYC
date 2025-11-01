@@ -16,7 +16,7 @@ export const experimental_ppr = true;
 async function StartupDetail({ params }: { params: Promise<{ id: string }> }) {
   const id = (await params).id;
 
-  const [post, { select: editorPosts }] = await Promise.all([
+  const [post, playlist] = await Promise.all([
     client.fetch(STARTUP_BY_ID, { id }),
     client.fetch(PLAYLIST_BY_SLUG_QUERY, {
       slug: "editor-picks",
@@ -24,6 +24,8 @@ async function StartupDetail({ params }: { params: Promise<{ id: string }> }) {
   ]);
 
   if (!post) return notFound();
+
+  const editorPosts = playlist?.select || [];
 
   const parsedContent = md.render(post?.pitch || "");
 

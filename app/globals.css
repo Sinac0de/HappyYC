@@ -237,7 +237,7 @@ a {
   }
 
   .view-text {
-    @apply font-medium text-[16px] bg-primary-100 dark:bg-primary-900/30 px-4 py-2 rounded-lg capitalize text-black dark:text-white;
+    @apply font-medium text-[16px] bg-primary-100 dark:bg-primary-900 px-4 py-2 rounded-lg capitalize text-black dark:text-white;
   }
 
   .category-tag {
