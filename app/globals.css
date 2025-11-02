@@ -177,6 +177,19 @@ a {
     @apply size-[50px] rounded-full bg-black dark:bg-gray-700 flex justify-center items-center !important;
   }
 
+  /* Minimal search form for startups page */
+  .minimal-search-form {
+    @apply w-full py-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-full text-base px-4 flex flex-row items-center gap-2;
+  }
+
+  .minimal-search-input {
+    @apply font-normal placeholder:font-normal placeholder:text-gray-500 dark:placeholder:text-gray-400 w-full h-auto outline-none bg-white dark:bg-gray-800 text-black dark:text-white py-1;
+  }
+
+  .minimal-search-btn {
+    @apply size-[26px] rounded-full bg-black dark:bg-gray-700 flex justify-center items-center !important;
+  }
+
   /* startupcard */
   .startup-card {
     @apply bg-white dark:bg-gray-800 border-[5px] border-black dark:border-gray-600 py-6 px-5 rounded-[22px] shadow-200 dark:shadow-200-dark hover:border-primary dark:hover:border-primary transition-all duration-500 hover:shadow-300 dark:hover:shadow-300-dark hover:bg-primary-100 dark:hover:bg-gray-700;

@@ -1,4 +1,6 @@
-import SearchForm from "@/components/SearchForm";
+"use client";
+
+import SearchForm from "@/components/SearchAndSort/SearchForm";
 
 export default function HeroSection({ query }: { query?: string }) {
   return (

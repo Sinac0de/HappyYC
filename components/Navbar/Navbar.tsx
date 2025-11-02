@@ -1,11 +1,11 @@
 import { auth, signIn, signOut } from "@/auth";
-import Image from "next/image";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
-import { PiSignOut } from "react-icons/pi";
+import { DesktopNav } from "./DesktopNav";
 import { MobileSidebar } from "./MobileSidebar";
-import { AnimatedThemeToggler } from "./ui/animated-theme-toggler";
-import { UserProfilePopover } from "./UserProfilePopover";
+import { AnimatedThemeToggler } from "../ui/animated-theme-toggler";
+import { UserProfilePopover } from "../UserProfilePopover";
+import { PlusCircle } from "lucide-react";
 
 async function Navbar() {
   const session = await auth();
@@ -26,7 +26,7 @@ async function Navbar() {
       <nav>
         <div className="flex gap-2 justify-between max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           {/* logo */}
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-16 gap-6">
             <div className="flex items-center">
               <Link href={"/"} className="flex-shrink-0">
                 <h2 className="text-2xl font-bold text-black dark:text-white">
@@ -34,12 +34,14 @@ async function Navbar() {
                 </h2>
               </Link>
             </div>
+            {/* Desktop Navigation */}
+            <DesktopNav />
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <MobileSidebar
-              user={session?.user ?? null}
+              user={{ id: session?.id, ...session?.user }}
               session={session}
               onSignIn={handleSignIn}
               onSignOut={handleSignOut}
@@ -48,6 +50,14 @@ async function Navbar() {
 
           {/* Desktop User info */}
           <div className="hidden md:flex relative items-center justify-between gap-2 h-16">
+            {/* Create Startup Button */}
+            <Link
+              href={"/create"}
+              className="flex items-center justify-center gap-2 px-4 py-1 border-2 border-primary text-black dark:text-white rounded-full hover:bg-primary-100 transition-all"
+            >
+              <PlusCircle className="h-5 w-5" />
+              Create
+            </Link>
             {!session ? (
               <form
                 action={async () => {

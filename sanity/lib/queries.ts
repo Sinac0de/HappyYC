@@ -1,20 +1,56 @@
 import { defineQuery } from "next-sanity";
 
 export const STARTUPS_QUERY = defineQuery(
-  `*[_type == "startup" && defined(slug.current) && !defined($search) || title match $search || category match $search || author->name match $search ]{
+  `*[_type == "startup" && defined(slug.current) && !defined($search) || title match $search || category match $search || author->name match $search ] | order(_createdAt desc){
   _id,
   title,
   slug,
   _createdAt,
+  _updatedAt,
+  _rev,
   author ->{
       _id, name, image, bio
   },
   views,
   description,
   category,
-  image
+  image,
+  pitch
 }`
 );
+
+export const STARTUPS_QUERY_WITH_SORT = (sortOrder: string) => {
+  // Map friendly sort names to Sanity sort parameters
+  const sortMap: Record<string, string> = {
+    "title asc": "title asc",
+    "title desc": "title desc",
+    "views desc": "views desc",
+    "views asc": "views asc",
+    "_createdAt desc": "_createdAt desc",
+    "_createdAt asc": "_createdAt asc",
+  };
+
+  const sortParam = sortMap[sortOrder] || "_createdAt desc";
+  
+  return defineQuery(
+    `*[_type == "startup" && defined(slug.current) && !defined($search) || title match $search || category match $search || author->name match $search ] | order(${sortParam}){
+    _id,
+    title,
+    slug,
+    _createdAt,
+    _updatedAt,
+    _rev,
+    author ->{
+        _id, name, image, bio
+    },
+    views,
+    description,
+    category,
+    image,
+    pitch
+  }`
+  );
+};
 
 export const STARTUP_BY_ID = defineQuery(
   `*[_type == "startup" && _id == $id][0]{

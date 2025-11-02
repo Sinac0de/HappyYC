@@ -2,7 +2,16 @@
 
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { User as AuthUser } from "@auth/core/types";
-import { Home, Menu, PlusCircle, User, X } from "lucide-react";
+import { Session } from "next-auth";
+import {
+  Home,
+  Menu,
+  PlusCircle,
+  User,
+  Building,
+  Lightbulb,
+  X,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -15,7 +24,7 @@ export function MobileSidebar({
   session,
 }: {
   user: AuthUser | null;
-  session: any;
+  session: Session | null;
   onSignIn?: () => void;
   onSignOut?: () => void;
 }) {
@@ -27,13 +36,16 @@ export function MobileSidebar({
     setIsOpen(!isOpen);
   };
 
-  const handleCreateBlog = () => {
-    // Navigate to create blog page
-    router.push("/studio");
+  const handleCreateStartup = () => {
+    // Navigate to create startup page
+    router.push("/create");
     setIsOpen(false);
   };
 
-  const navItems = [{ name: "Home", href: "/", icon: Home }];
+  const navItems = [
+    { name: "Home", href: "/", icon: Home },
+    { name: "Startups", href: "/startups", icon: Building },
+  ];
 
   return (
     <>
@@ -152,13 +164,13 @@ export function MobileSidebar({
 
           {/* Bottom Actions */}
           <div className="p-4 border-t border-gray-200 dark:border-gray-800">
-            {/* Create Blog Button */}
+            {/* Create Startup Button */}
             <button
-              onClick={handleCreateBlog}
+              onClick={handleCreateStartup}
               className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 mb-4"
             >
               <PlusCircle className="h-5 w-5" />
-              Create Blog
+              Create Startup
             </button>
 
             {/* Theme Toggle */}

@@ -5,7 +5,11 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
-export default function GlobalError({ error }: { error: Error & { digest?: string } }) {
+export default function GlobalError({
+  error,
+}: {
+  error: Error & { digest?: string };
+}) {
   useEffect(() => {
     Sentry.captureException(error);
   }, [error]);
@@ -20,7 +24,8 @@ export default function GlobalError({ error }: { error: Error & { digest?: strin
               Something went wrong
             </h2>
             <p className="text-muted-foreground">
-              We are sorry, but something unexpected happened. Our team has been notified.
+              We are sorry, but something unexpected happened. Our team has been
+              notified.
             </p>
             <div className="flex gap-4 justify-center">
               <Button asChild>
