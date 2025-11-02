@@ -8,6 +8,7 @@ import { formatDate } from "@/lib/utils";
 import { Suspense } from "react";
 import View from "@/components/View";
 import { Skeleton } from "@/components/ui/skeleton";
+import StartupCard from "@/components/StartupCard";
 
 const md = markdownit();
 
@@ -40,7 +41,7 @@ async function StartupDetail({ params }: { params: Promise<{ id: string }> }) {
 
       <section className="section_container">
         <img
-          src={post.image}
+          src={post.image || ""}
           alt="thumbnail"
           className="w-full h-auto rounded-xl"
         />
@@ -52,7 +53,7 @@ async function StartupDetail({ params }: { params: Promise<{ id: string }> }) {
               className="flex gap-2 items-center mb-3"
             >
               <Image
-                src={post.author.image}
+                src={post.author?.image || ""}
                 alt="avatar"
                 width={64}
                 height={64}
@@ -60,9 +61,11 @@ async function StartupDetail({ params }: { params: Promise<{ id: string }> }) {
               />
 
               <div>
-                <p className="text-20-medium">{post.author.name}</p>
+                <p className="text-20-medium">
+                  {post.author?.name || "Unknown Author"}
+                </p>
                 <p className="text-16-medium !text-black-300">
-                  @{post.author.username}
+                  @{post.author?.username || "unknown"}
                 </p>
               </div>
             </Link>
@@ -73,7 +76,7 @@ async function StartupDetail({ params }: { params: Promise<{ id: string }> }) {
           <h3 className="text-30-bold">Pitch Details</h3>
           {parsedContent ? (
             <article
-              className="prose max-w-4xl font-work-sans break-all"
+              className="prose max-w-4xl font-work-sans break-all dark:prose-invert dark:prose-headings:text-white dark:prose-p:text-gray-300 dark:prose-strong:text-white dark:prose-code:text-gray-300"
               dangerouslySetInnerHTML={{ __html: parsedContent }}
             />
           ) : (
@@ -84,11 +87,19 @@ async function StartupDetail({ params }: { params: Promise<{ id: string }> }) {
         <hr className="divider" />
 
         {editorPosts?.length > 0 && (
-          <div className="max-w-4xl mx-auto">
-            <p className="text-30-semibold">Editor Picks</p>
+          <div className="max-w-6xl mx-auto">
+            <div className="flex justify-between items-center">
+              <p className="text-30-semibold">Editor Picks</p>
+              <Link
+                href="/startups"
+                className="text-primary hover:text-primary-700"
+              >
+                View All
+              </Link>
+            </div>
 
-            <ul className="mt-7 card_grid-sm">
-              {editorPosts.map((post: StartupTypeCard, i: number) => (
+            <ul className="mt-7 card_grid">
+              {editorPosts.map((post: any, i: number) => (
                 <StartupCard key={i} post={post} />
               ))}
             </ul>

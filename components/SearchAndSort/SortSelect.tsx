@@ -67,7 +67,7 @@ export function SortSelect({ initialSort }: { initialSort: string }) {
         id="sort-select"
         defaultValue={initialSort}
         onChange={handleChange}
-        className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+        className="minimal-search-input rounded-full ring-1  ring-gray-300 dark:ring-gray-600 p-4 min-h-[35px] border-r-8 border-transparent"
       >
         <option value="title asc">Name (A-Z)</option>
         <option value="title desc">Name (Z-A)</option>

@@ -1,5 +1,6 @@
 import CtaSection from "@/components/Landing/CtaSection";
 import FaqSection from "@/components/Landing/FaqSection";
+import FeaturedStartups from "@/components/Landing/FeaturedStartups";
 import HeroSection from "@/components/Landing/HeroSection";
 import HowItWorksSection from "@/components/Landing/HowItWorksSection";
 import TestimonialsSection from "@/components/Landing/TestimonialsSection";
@@ -15,6 +16,8 @@ export default async function Home({
   return (
     <>
       <HeroSection query={query} />
+
+      <FeaturedStartups />
 
       <HowItWorksSection />
 
