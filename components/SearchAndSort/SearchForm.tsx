@@ -14,31 +14,37 @@ function SearchForm({ query }: { query?: string }) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Get current URL parameters
-    const params = new URLSearchParams(window.location.search);
-
-    if (searchQuery.trim()) {
-      params.set("query", searchQuery.trim());
+    // If we're not on the search page, navigate to it with the query
+    if (pathname !== "/search") {
+      const newUrl = `/search${searchQuery.trim() ? `?query=${encodeURIComponent(searchQuery.trim())}` : ""}`;
+      router.push(newUrl);
     } else {
-      params.delete("query");
+      // If we're already on the search page, update the URL parameters
+      const params = new URLSearchParams(window.location.search);
+
+      if (searchQuery.trim()) {
+        params.set("query", searchQuery.trim());
+      } else {
+        params.delete("query");
+      }
+
+      // Preserve sort parameter if it exists
+      const sortParam = params.get("sort");
+
+      // Build the new URL
+      const newParams = new URLSearchParams();
+      if (searchQuery.trim()) {
+        newParams.set("query", searchQuery.trim());
+      }
+      if (sortParam) {
+        newParams.set("sort", sortParam);
+      }
+
+      const queryString = newParams.toString();
+      const newUrl = `${pathname}${queryString ? `?${queryString}` : ""}`;
+
+      router.push(newUrl);
     }
-
-    // Preserve sort parameter if it exists
-    const sortParam = params.get("sort");
-
-    // Build the new URL
-    const newParams = new URLSearchParams();
-    if (searchQuery.trim()) {
-      newParams.set("query", searchQuery.trim());
-    }
-    if (sortParam) {
-      newParams.set("sort", sortParam);
-    }
-
-    const queryString = newParams.toString();
-    const newUrl = `${pathname}${queryString ? `?${queryString}` : ""}`;
-
-    router.push(newUrl);
   };
 
   return (
