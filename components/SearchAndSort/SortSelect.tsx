@@ -15,17 +15,17 @@ export function SortSelect({ initialSort }: { initialSort: string }) {
 
   // Function to build URL with new sort parameter
   const buildSortUrl = (sortValue: string) => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
-      
+
       if (sortValue === "_createdAt desc") {
-        params.delete('sort');
+        params.delete("sort");
       } else {
-        params.set('sort', sortValue);
+        params.set("sort", sortValue);
       }
-      
+
       const queryString = params.toString();
-      return `${pathname}${queryString ? `?${queryString}` : ''}`;
+      return `${pathname}${queryString ? `?${queryString}` : ""}`;
     }
     return pathname;
   };
@@ -39,7 +39,9 @@ export function SortSelect({ initialSort }: { initialSort: string }) {
   if (!isClient) {
     return (
       <div className="w-full">
-        <label htmlFor="sort-select" className="sr-only">Sort by</label>
+        <label htmlFor="sort-select" className="sr-only">
+          Sort by
+        </label>
         <select
           id="sort-select"
           defaultValue={initialSort}
@@ -58,7 +60,9 @@ export function SortSelect({ initialSort }: { initialSort: string }) {
 
   return (
     <div className="w-full">
-      <label htmlFor="sort-select" className="sr-only">Sort by</label>
+      <label htmlFor="sort-select" className="sr-only">
+        Sort by
+      </label>
       <select
         id="sort-select"
         defaultValue={initialSort}
