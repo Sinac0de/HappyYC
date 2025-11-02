@@ -24,7 +24,7 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-20 px-6 max-w-7xl mx-auto">
+    <section className="py-20 px-6 max-w-7xl mx-auto" id="testimonials">
       <div className="text-center mb-16">
         <h2 className="text-30-bold mb-4 text-black dark:text-white">
           Success Stories

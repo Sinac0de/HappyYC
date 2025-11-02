@@ -1,39 +1,39 @@
 import Link from "next/link";
 import { FaGithub, FaTwitter, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import ShinyText from "./ShinyText";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const navigation = {
     product: [
-      { name: "Features", href: "#" },
-      { name: "How It Works", href: "#how-it-works" },
-      { name: "Testimonials", href: "#" },
-      { name: "Pricing", href: "#" },
+      { name: "Create a Pitch", href: "/create" },
+      { name: "How It Works", href: "/#how-it-works" },
+      { name: "Testimonials", href: "/#testimonials" },
+      { name: "FAQ", href: "/#faq" },
     ],
     company: [
-      { name: "About", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "Careers", href: "#" },
-      { name: "Contact", href: "#" },
+      { name: "Startups", href: "/startups" },
+      { name: "About", href: "/about" },
     ],
     legal: [
-      { name: "Privacy", href: "#" },
-      { name: "Terms", href: "#" },
-      { name: "Cookies", href: "#" },
-      { name: "Licenses", href: "#" },
+      { name: "Privacy", href: "/privacy" },
+      { name: "Terms", href: "/terms" },
     ],
     social: [
-      { name: "GitHub", href: "#", icon: FaGithub },
-      { name: "Twitter", href: "#", icon: FaTwitter },
-      { name: "LinkedIn", href: "#", icon: FaLinkedin },
-      { name: "Email", href: "#", icon: FaEnvelope },
+      { name: "GitHub", href: "https://github.com/Sinac0de", icon: FaGithub },
+      {
+        name: "LinkedIn",
+        href: "https://www.linkedin.com/in/sina-moradian-198836223/",
+        icon: FaLinkedin,
+      },
+      { name: "Email", href: "mailto:sinacodes@gmail.com", icon: FaEnvelope },
     ],
   };
 
   return (
     <footer className="border-t-2 border-gray-800 bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6 py-16 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
@@ -122,18 +122,27 @@ export default function Footer() {
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <Link
-              href="#"
+              href="/privacy"
               className="text-gray-400 hover:text-white transition-colors duration-300"
             >
               Privacy Policy
             </Link>
             <Link
-              href="#"
+              href="/terms"
               className="text-gray-400 hover:text-white transition-colors duration-300"
             >
               Terms of Service
             </Link>
           </div>
+        </div>
+        <div className="flex items-center justify-center mt-4">
+          <a
+            href="https://github.com/Sinac0de"
+            className="mx-auto"
+            target="_blank"
+          >
+            <ShinyText text={"Made with ♥ by Sina Moradian"} speed={5} />
+          </a>
         </div>
       </div>
     </footer>
