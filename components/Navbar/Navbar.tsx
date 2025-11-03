@@ -50,14 +50,18 @@ async function Navbar() {
 
           {/* Desktop User info */}
           <div className="hidden md:flex relative items-center justify-between gap-2 h-16">
-            {/* Create Startup Button */}
-            <Link
-              href={"/create"}
-              className="flex items-center justify-center gap-2 px-4 py-1 border-2 border-primary text-black dark:text-white rounded-full hover:bg-primary-100 transition-all"
-            >
-              <PlusCircle className="h-5 w-5" />
-              Create
-            </Link>
+            {session && (
+              <>
+                {/* Create Startup Button */}
+                <Link
+                  href="/create"
+                  className="flex items-center justify-center gap-2 px-4 py-1 border-2 border-primary text-black dark:text-white rounded-full hover:bg-primary-100 dark:hover:bg-primary-700 transition-all"
+                >
+                  <PlusCircle className="h-5 w-5" />
+                  Create
+                </Link>
+              </>
+            )}
             {!session ? (
               <form
                 action={async () => {
@@ -75,11 +79,11 @@ async function Navbar() {
               </form>
             ) : (
               <UserProfilePopover
-                user={{ 
-                  id: session.id, 
+                user={{
+                  id: session.id,
                   name: session.user?.name || undefined,
                   email: session.user?.email || undefined,
-                  image: session.user?.image || undefined
+                  image: session.user?.image || undefined,
                 }}
                 signOutAction={handleSignOut}
               />

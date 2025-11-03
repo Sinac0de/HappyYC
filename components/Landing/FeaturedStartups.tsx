@@ -17,7 +17,7 @@ async function FeaturedStartups() {
   return (
     <>
       {featuredPosts?.length > 0 && (
-        <div className="max-w-7xl mx-auto mt-10">
+        <div className="max-w-7xl mx-auto mt-10 px-6">
           <div className="flex justify-between items-center">
             <p className="text-30-semibold">Featured Startups</p>
             <Link

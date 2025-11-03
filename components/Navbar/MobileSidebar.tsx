@@ -81,7 +81,7 @@ export function MobileSidebar({
 
           {/* User Profile Section */}
           <div className="p-4 border-b border-gray-200 dark:border-gray-800">
-            {user ? (
+            {user && session ? (
               <Link
                 href={`/user/${session?.id}`}
                 onClick={toggleSidebar}
@@ -156,14 +156,18 @@ export function MobileSidebar({
 
           {/* Bottom Actions */}
           <div className="p-4 border-t border-gray-200 dark:border-gray-800">
-            {/* Create Startup Button */}
-            <button
-              onClick={handleCreateStartup}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 mb-4"
-            >
-              <PlusCircle className="h-5 w-5" />
-              Create Startup
-            </button>
+            {session && (
+              <>
+                {/* Create Startup Button */}
+                <button
+                  onClick={handleCreateStartup}
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 mb-4"
+                >
+                  <PlusCircle className="h-5 w-5" />
+                  Create Startup
+                </button>
+              </>
+            )}
 
             {/* Theme Toggle */}
             <AnimatedThemeToggler
@@ -172,7 +176,7 @@ export function MobileSidebar({
             />
 
             {/* User Actions */}
-            {user ? (
+            {user && session ? (
               <form action={onSignOut} className="w-full">
                 <button
                   type="submit"
