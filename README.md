@@ -1,4 +1,4 @@
-# 🚀 YC Startup Directory
+# 🚀 Happy YC
 
 > A full-stack web app inspired by Y Combinator — connecting founders, startups, and investors with blazing-fast performance and elegant UX.
 
