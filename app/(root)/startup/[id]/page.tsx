@@ -103,8 +103,8 @@ async function StartupDetail({ params }: { params: Promise<{ id: string }> }) {
             </div>
 
             <ul className="mt-7 card_grid">
-              {editorPosts.map((post, i: number) => (
-                <StartupCard key={post._id} post={{ ...post, _type: "startup" } as any} />
+              {editorPosts.map((post) => (
+                <StartupCard key={post._id} post={post} />
               ))}
             </ul>
           </div>

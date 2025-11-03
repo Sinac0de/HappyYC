@@ -1,8 +1,8 @@
 import { client } from "@/sanity/lib/client";
 import { PLAYLIST_BY_SLUG_QUERY } from "@/sanity/lib/queries";
 import { PLAYLIST_BY_SLUG_QUERYResult } from "@/sanity/types";
+import StartupCard from "@/components/StartupCard";
 import Link from "next/link";
-import StartupCard from "../StartupCard";
 
 async function FeaturedStartups() {
   const playlist: PLAYLIST_BY_SLUG_QUERYResult = await client.fetch(
@@ -30,9 +30,9 @@ async function FeaturedStartups() {
 
           <ul className="mt-7 card_grid">
             {featuredPosts.map((post) => (
-              <StartupCard
-                key={post._id}
-                post={{ ...post, _type: "startup" } as any}
+              <StartupCard 
+                key={post._id} 
+                post={post} 
               />
             ))}
           </ul>
