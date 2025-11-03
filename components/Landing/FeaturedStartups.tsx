@@ -30,10 +30,7 @@ async function FeaturedStartups() {
 
           <ul className="mt-7 card_grid">
             {featuredPosts.map((post) => (
-              <StartupCard 
-                key={post._id} 
-                post={post} 
-              />
+              <StartupCard key={post._id} post={post} />
             ))}
           </ul>
         </div>
