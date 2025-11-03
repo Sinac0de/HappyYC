@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function TestimonialsSection() {
   const testimonials = [
     {
@@ -42,9 +44,11 @@ export default function TestimonialsSection() {
           >
             <div className="flex items-center mb-4">
               <div className="w-12 h-12 rounded-full overflow-hidden bg-primary ring ring-primary flex items-center justify-center text-white font-bold mr-4">
-                <img
+                <Image
                   src={testimonial.avatar}
                   alt={testimonial.name}
+                  width={48}
+                  height={48}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -58,7 +62,7 @@ export default function TestimonialsSection() {
               </div>
             </div>
             <p className="text-gray-700 dark:text-gray-300 italic">
-              "{testimonial.content}"
+              &quot;{testimonial.content}&quot;
             </p>
           </div>
         ))}

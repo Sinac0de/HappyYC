@@ -1,12 +1,16 @@
 import { client } from "@/sanity/lib/client";
 import { PLAYLIST_BY_SLUG_QUERY } from "@/sanity/lib/queries";
-import StartupCard from "../StartupCard";
+import { PLAYLIST_BY_SLUG_QUERYResult } from "@/sanity/types";
 import Link from "next/link";
+import StartupCard from "../StartupCard";
 
 async function FeaturedStartups() {
-  const playlist = await client.fetch(PLAYLIST_BY_SLUG_QUERY, {
-    slug: "featured-startups",
-  });
+  const playlist: PLAYLIST_BY_SLUG_QUERYResult = await client.fetch(
+    PLAYLIST_BY_SLUG_QUERY,
+    {
+      slug: "featured-startups",
+    }
+  );
 
   const featuredPosts = playlist?.select || [];
 
@@ -25,8 +29,11 @@ async function FeaturedStartups() {
           </div>
 
           <ul className="mt-7 card_grid">
-            {featuredPosts.map((post: any, i: number) => (
-              <StartupCard key={i} post={post} />
+            {featuredPosts.map((post) => (
+              <StartupCard
+                key={post._id}
+                post={{ ...post, _type: "startup" } as any}
+              />
             ))}
           </ul>
         </div>

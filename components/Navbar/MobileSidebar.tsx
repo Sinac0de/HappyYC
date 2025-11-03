@@ -3,15 +3,7 @@
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { User as AuthUser } from "@auth/core/types";
 import { Session } from "next-auth";
-import {
-  Home,
-  Menu,
-  PlusCircle,
-  User,
-  Building,
-  Lightbulb,
-  X,
-} from "lucide-react";
+import { Home, Menu, PlusCircle, User, Building, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";

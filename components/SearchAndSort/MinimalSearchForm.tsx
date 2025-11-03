@@ -1,7 +1,6 @@
 "use client";
 
 import { Search } from "lucide-react";
-import SearchFormReset from "./SearchFormReset";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";

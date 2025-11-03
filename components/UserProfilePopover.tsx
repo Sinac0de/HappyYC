@@ -10,11 +10,18 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
+type UserType = {
+  id?: string;
+  name?: string;
+  email?: string;
+  image?: string;
+};
+
 export function UserProfilePopover({
   user,
   signOutAction,
 }: {
-  user: any;
+  user: UserType;
   signOutAction: () => Promise<void>;
 }) {
   const [open, setOpen] = useState(false);

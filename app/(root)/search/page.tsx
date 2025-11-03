@@ -1,4 +1,4 @@
-import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
+import StartupCard from "@/components/StartupCard";
 import { sanityFetch } from "@/sanity/lib/live";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import Link from "next/link";
@@ -52,8 +52,8 @@ export default async function SearchPage({
             </div>
 
             <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {posts.map((post: StartupTypeCard) => (
-                <StartupCard key={post?._id} post={post} />
+              {posts.map((post) => (
+                <StartupCard key={post._id} post={post} />
               ))}
             </ul>
           </>
@@ -79,8 +79,8 @@ export default async function SearchPage({
               No startups found
             </h2>
             <p className="text-gray-600 dark:text-slate-300 mb-6 max-w-md mx-auto">
-              We couldn't find any startups matching "{query}". Try different
-              keywords or browse all startups.
+              We couldn&apos;t find any startups matching &quot;{query}&quot;.
+              Try different keywords or browse all startups.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link

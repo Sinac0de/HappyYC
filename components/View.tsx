@@ -1,13 +1,16 @@
-import Ping from "./Ping";
 import { client } from "@/sanity/lib/client";
 import { STARTUP_VIEWS_QUERY } from "@/sanity/lib/queries";
 import { writeClient } from "@/sanity/lib/write-client";
 import { after } from "next/server";
+import Ping from "./Ping";
 
 const View = async ({ id }: { id: string }) => {
-  const { views: totalViews } = await client
+  const result = await client
     .withConfig({ useCdn: false })
     .fetch(STARTUP_VIEWS_QUERY, { id });
+
+  // Handle the case where result might be null
+  const totalViews = result?.views || 0;
 
   after(
     async () =>

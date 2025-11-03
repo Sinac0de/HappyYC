@@ -69,4 +69,15 @@ function SearchForm({ query }: { query?: string }) {
   );
 }
 
+export function SearchFormSkeleton() {
+  return (
+    <div className="search-form">
+      <div className="w-full h-10 bg-gray-200 rounded-md animate-pulse"></div>
+      <div className="flex gap-2">
+        <div className="w-10 h-10 bg-gray-300 rounded-md animate-pulse"></div>
+      </div>
+    </div>
+  );
+}
+
 export default SearchForm;

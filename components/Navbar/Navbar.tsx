@@ -75,7 +75,12 @@ async function Navbar() {
               </form>
             ) : (
               <UserProfilePopover
-                user={{ id: session.id, ...session.user }}
+                user={{ 
+                  id: session.id, 
+                  name: session.user?.name || undefined,
+                  email: session.user?.email || undefined,
+                  image: session.user?.image || undefined
+                }}
                 signOutAction={handleSignOut}
               />
             )}
