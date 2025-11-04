@@ -61,7 +61,7 @@ async function StartupDetail({ params }: { params: Promise<{ id: string }> }) {
                 alt="avatar"
                 width={64}
                 height={64}
-                className="rounded-full drop-shadow-lg"
+                className="rounded-full object-cover aspect-square object-top drop-shadow-lg"
               />
 
               <div>

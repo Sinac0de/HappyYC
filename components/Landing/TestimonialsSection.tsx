@@ -7,21 +7,21 @@ export default function TestimonialsSection() {
       role: "Founder, TechStart",
       content:
         "HappyYC helped me refine my pitch and connect with my first investor. The community feedback was invaluable!",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      avatar: "/images/man-1.jpg",
     },
     {
       name: "Maria Garcia",
       role: "CEO, GreenSolutions",
       content:
         "The platform's collaborative environment helped me find my co-founder. We're now scaling our startup globally.",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+      avatar: "/images/woman-1.jpg",
     },
     {
       name: "David Chen",
       role: "Product Lead, InnovateX",
       content:
         "As an investor, I've discovered several promising startups through HappyYC that are now part of my portfolio.",
-      avatar: "https://randomuser.me/api/portraits/men/54.jpg",
+      avatar: "/images/man-2.jpg",
     },
   ];
 
