@@ -7,7 +7,6 @@ export default function Footer() {
 
   const navigation = {
     product: [
-      { name: "Create a Pitch", href: "/create" },
       { name: "How It Works", href: "/#how-it-works" },
       { name: "Testimonials", href: "/#testimonials" },
       { name: "FAQ", href: "/#faq" },
